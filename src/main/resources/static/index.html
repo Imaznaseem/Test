@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cariogram - Evaluation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<!-- Meny överst -->
+<div class="menu">
+    <button id="new">New</button>
+    <button id="save">Save</button>
+    <button id="print">Print</button>
+    <button id="advice">Advice</button>
+    <button id="help">Help</button>
+
+    <div class="language-container">
+        <!-- Språkval -->
+        <select id="language-select">
+            <option value="English">English</option>
+            <option value="Swedish">Svenska</option>
+        </select>
+    </div>
+
+    <!-- X-knapp -->
+    <button class="close-btn">X</button>
+</div>
+
+<!-- Huvudlayouten -->
+<div class="main-content">
+    <!-- Vänstra panelen -->
+    <div class="left-panel">
+        <h2>Information</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" placeholder="Name" />
+
+        <label for="ident">Ident.No:</label>
+        <input type="text" id="ident" placeholder="Ident No." />
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" value="2024-10-04" />
+
+        <label for="examiner">Examiner:</label>
+        <input type="text" id="examiner" placeholder="Examiner" />
+
+        <label for="notes">Notes:</label>
+        <textarea id="notes" placeholder="Notes"></textarea>
+    </div>
+
+    <!-- Högra panelen -->
+    <div class="right-panel">
+        <div class="criteria">
+            <label for="caries">Caries experience (0-3):</label>
+            <input type="number" id="caries" min="0" max="3" value="0" />
+
+            <label for="diseases">Related diseases (0-2):</label>
+            <input type="number" id="diseases" min="0" max="2" value="0" />
+
+            <label for="diet">Diet, contents (0-3):</label>
+            <input type="number" id="diet" min="0" max="3" value="0" />
+
+            <label for="diet-frequency">Diet, frequency (0-3):</label>
+            <input type="number" id="diet-frequency" min="0" max="3" value="0" />
+
+            <label for="plaque">Plaque amount (0-3):</label>
+            <input type="number" id="plaque" min="0" max="3" value="0" />
+
+            <label for="mutans">Mutans streptococci (0-3):</label>
+            <input type="number" id="mutans" min="0" max="3" value="0" />
+
+            <label for="fluoride">Fluoride program (0-3):</label>
+            <input type="number" id="fluoride" min="0" max="3" value="0" />
+
+            <label for="saliva">Saliva secretion (0-3):</label>
+            <input type="number" id="saliva" min="0" max="3" value="0" />
+
+            <label for="buffer">Buffer capacity (0-2):</label>
+            <input type="number" id="buffer" min="0" max="2" value="0" />
+
+            <label for="judgement">Clin. judgement (0-3):</label>
+            <input type="number" id="judgement" min="0" max="3" value="0" />
+        </div>
+    </div>
+</div>
+
+<!-- Meddelande i mitten (replaced by chart) -->
+<div class="center-message">
+    <canvas id="cariogramChart" width="200" height="200"></canvas>
+</div>
+
+
+<!-- Färgrektanglar längst ner -->
+<div class="legend">
+    <div class="legend-item">
+        <div class="color-box" style="background-color: #4CAF50;"></div>
+        <p>Actual chance to avoid new cavities</p>
+    </div>
+    <div class="legend-item">
+        <div class="color-box" style="background-color: #FFEB3B;"></div>
+        <p>Circumstances</p>
+    </div>
+    <div class="legend-item">
+        <div class="color-box" style="background-color: #00BCD4;"></div>
+        <p>Susceptibility</p>
+    </div>
+    <div class="legend-item">
+        <div class="color-box" style="background-color: #F44336;"></div>
+        <p>Bacteria</p>
+    </div>
+    <div class="legend-item">
+        <div class="color-box" style="background-color: #2196F3;"></div>
+        <p>Diet</p>
+    </div>
+</div>
+
+<!-- Load Chart.js and the datalabels plugin before app.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
+

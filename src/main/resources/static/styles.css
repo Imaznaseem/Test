@@ -1,0 +1,186 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+
+}
+
+/* Språkval och X-knapp behållare */
+.language-container {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Justera mellanrum mellan språkvalet och X-knappen */
+    margin-left: auto; /* Flyttar språkvalet och X-knappen till höger */
+}
+
+/* Gör språkknappen lika stor som de andra knapparna */
+#language-select {
+    padding: 10px 20px; /* Samma padding som de andra knapparna */
+    font-size: 15px;
+    border: 1px solid #ccc; /* Samma kantfärg som knapparna */
+    background-color: #e0e0e0; /* Mörkare bakgrundsfärg */
+    color: black; /* Färg på texten */
+    height: 42px; /* Justerar höjden för att matcha de andra knapparna */
+    width: auto;
+    box-sizing: border-box; /* Inkluderar padding i totalbredden */
+}
+
+/* Gör X-knappen lika mörk som språkknappen och flyttar den åt vänster */
+.close-btn {
+    background-color: #e0e0e0; /* Samma mörkare bakgrundsfärg som språkknappen */
+    color: black; /* Färg på X */
+    border: 1px solid #ccc; /* Samma kantfärg som språkknappen */
+    padding: 10px 20px; /* Matchar storleken med språkknappen */
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    height: 42px; /* Matchar höjden med de andra knapparna */
+    margin-right: 20px; /* Flyttar X-knappen åt vänster */
+}
+
+.close-btn:hover {
+    background-color: #c0c0c0; /* Lite mörkare bakgrundsfärg vid hover */
+}
+
+/* Styling för knapparna i menyn */
+.menu {
+    display: flex;
+    justify-content: flex-start; /* Håller alla knappar till vänster */
+    gap: 10px;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* Justerar endast New-knappen utan att påverka resten */
+#new {
+    margin-left: 20px; /* Flyttar New-knappen åt höger */
+}
+
+.menu button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    background-color: #f5f5f5;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.3s ease;
+    height: 42px;
+}
+
+.menu button:hover {
+    background-color: #e0e0e0;
+}
+
+#new, #help {
+    background-color: #d0e4f7;
+}
+
+.menu button:disabled {
+    background-color: #f0f0f0;
+    color: #888;
+    cursor: not-allowed;
+}
+
+.menu button:not(:disabled) {
+    color: #000;
+}
+
+label {
+    color: #000000; /* Ställer in textfärgen till svart */
+    font-weight: bold; /* Valfritt: gör texten fetare om du vill ha en tydligare effekt */
+}
+
+/* Styling för höger panel */
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    width: 250px; /* Justera bredden efter behov */
+    margin-left: 20px; /* Lägg till marginal för att separera från vänstra panelen */
+}
+
+.criteria label,
+.criteria input {
+    margin-bottom: 10px;
+}
+
+.criteria input {
+    width: 100%;
+    padding: 5px;
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+/* Huvudinnehållets layout */
+.main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    width: 200px; /* Justera bredden efter behov */
+}
+
+.left-panel label,
+.left-panel input,
+.left-panel textarea {
+    margin-bottom: 10px;
+}
+
+.left-panel input,
+.left-panel textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+textarea {
+    height: 100px; /* Justera höjden på anteckningsfältet */
+}
+
+h2 {
+    margin-bottom: 10px;
+}
+
+/* Centrerad meddelande */
+.center-message {
+    display: flex;
+    justify-content: center; /* Centrerar horisontellt */
+    align-items: center; /* Centrerar vertikalt */
+    height: 100vh; /* Tar upp hela höjden av viewporten */
+    text-align: center;
+    font-size: 1.2em;
+    position: fixed; /* Fäst den i mitten av sidan utan att påverka resten av layouten */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none; /* Gör så att den inte hindrar interaktion med andra element */
+    z-index: -1; /* Gör den under andra element så att den inte täcker knappar och textfält */
+}
+
+/* Färglegend längst ner */
+.legend {
+    display: flex;
+    justify-content: center; /* Centrerar hela raden */
+    align-items: center; /* Vertikal centrering av färglådor och text */
+    gap: 40px; /* Minskar mellanrummet mellan varje element */
+    margin-top: 20px;
+}
+
+.legend-item {
+    display: flex;
+    flex-direction: column; /* Placera färglådan ovanför texten */
+    align-items: center; /* Centrera innehållet */
+    text-align: center;
+}
+
+.color-box {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px; /* Mellanrum mellan färgrutan och texten */
+}
+
