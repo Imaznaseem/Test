@@ -9,7 +9,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/cariogram")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "https://test-jhlp.onrender.com")
 public class CariogramController {
 
     private final InputHandlerService inputHandlerService;

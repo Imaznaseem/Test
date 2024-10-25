@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const validValues = values.filter(value => value > 0);
 
         if (validValues.length >= 7) {
-            fetch('http://localhost:8080/api/cariogram/analyze', {
+            fetch('/api/cariogram/analyze', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
