@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
         cariogramChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['Chance to Avoid Cavities', 'Diet', 'Susceptibility', 'Bacteria', 'Circumstances'],
+                labels: ['Chance to Avoid Cavities', 'Diet', 'Bacteria', 'Susceptibility', 'Circumstances'],
                 datasets: [{
                     data: data,
-                    backgroundColor: ['#4CAF50', '#0000FF', '#00FFFF', '#FF0000', '#FFFF00']
+                    backgroundColor: ['#4CAF50', '#0000FF', '#FF0000', '#00FFFF', '#FFFF00']
                 }]
             },
             options: {
