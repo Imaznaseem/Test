@@ -108,6 +108,8 @@ document.addEventListener('DOMContentLoaded', function() {
             plugins: [ChartDataLabels]
         });
     }
+
+
     // Helper function to get a contrasting color
     function getContrastColor(hexColor) {
         // Convert hex to RGB

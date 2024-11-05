@@ -4,6 +4,8 @@ package com.example.Cariogram_Backend.Services;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Objects;
+
 /*
  * Author: Johan Börjesson, Lisa Berglund & Stefan Gustavsson
  * Date: 2011-05-09
@@ -119,7 +121,7 @@ public class InputHandlerService implements InputHandlerServiceImpl {
         for (int i = 0; i <= 9; i++)
         {
             rawNum[i] = ParseToDouble(tillfStr[i]);
-            if ("".equals(tillfStr[i]) || "-".equals(tillfStr[i]))
+            if ("".equals(tillfStr[i]) || "-".equals(tillfStr[i]) || "-1".equals(tillfStr[i]) || Objects.equals(tillfStr[i], "-1"))
             {
                 rawNum[i] = 9;
                 saknas += 1;
