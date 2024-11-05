@@ -162,25 +162,5 @@ h2 {
     z-index: -1; /* Gör den under andra element så att den inte täcker knappar och textfält */
 }
 
-/* Färglegend längst ner */
-.legend {
-    display: flex;
-    justify-content: center; /* Centrerar hela raden */
-    align-items: center; /* Vertikal centrering av färglådor och text */
-    gap: 40px; /* Minskar mellanrummet mellan varje element */
-    margin-top: 20px;
-}
-
-.legend-item {
-    display: flex;
-    flex-direction: column; /* Placera färglådan ovanför texten */
-    align-items: center; /* Centrera innehållet */
-    text-align: center;
-}
-
-.color-box {
-    width: 30px;
-    height: 30px;
-    margin-bottom: 5px; /* Mellanrum mellan färgrutan och texten */
 }
 

@@ -69,10 +69,10 @@ document.addEventListener('DOMContentLoaded', function() {
         cariogramChart = new Chart(ctx, {
             type: 'pie',
             data: {
-                labels: ['Caries', 'Diseases', 'Diet Contents', 'Diet Frequency', 'Plaque', 'Mutans', 'Fluoride', 'Saliva', 'Buffer', 'Judgement'],
+                labels: ['Chance to Avoid Cavities', 'Diet', 'Susceptibility', 'Bacteria', 'Circumstances'],
                 datasets: [{
                     data: data,
-                    backgroundColor: ['#4CAF50', '#FFC107', '#00BCD4', '#F44336', '#2196F3', '#9C27B0', '#3F51B5', '#FF5722', '#607D8B', '#8BC34A']
+                    backgroundColor: ['#4CAF50', '#0000FF', '#00FFFF', '#FF0000', '#FFFF00']
                 }]
             },
             options: {
@@ -93,7 +93,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         position: 'bottom'
                     },
                     datalabels: {
-                        color: '#fff',
+                        color: function(context) {
+                                                let backgroundColor = context.dataset.backgroundColor[context.dataIndex];
+                                                return getContrastColor(backgroundColor);
+                                            },
                         formatter: (value, ctx) => {
                             let sum = ctx.chart.data.datasets[0].data.reduce((sum, val) => sum + val, 0);
                             let percentage = (value / sum * 100).toFixed(2) + '%';
@@ -104,6 +107,15 @@ document.addEventListener('DOMContentLoaded', function() {
             },
             plugins: [ChartDataLabels]
         });
+    }
+    // Helper function to get a contrasting color
+    function getContrastColor(hexColor) {
+        // Convert hex to RGB
+        const rgb = hexColor.replace('#', '').match(/.{1,2}/g).map(x => parseInt(x, 16));
+        // Calculate brightness
+        const brightness = (0.299 * rgb[0] + 0.587 * rgb[1] + 0.114 * rgb[2]) / 255;
+        // Return white for dark backgrounds and black for light backgrounds
+        return brightness > 0.5 ? '#000000' : '#FFFFFF';
     }
 });
 
