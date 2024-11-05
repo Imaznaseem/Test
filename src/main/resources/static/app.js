@@ -33,36 +33,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function updateChartIfNeeded() {
-        const values = inputFields.map(input => parseInt(input.value) || 0);
-        const validValues = values.filter(value => value > 0);
+            const values = inputFields.map(input => parseInt(input.value) || 0);
+            const validValues = values.filter(value => value > 0);
 
-        if (validValues.length >= 7) {
-            fetch('/api/cariogram/analyze', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    inputValues: values.map(String) // Convert numbers to strings
+            if (validValues.length >= 7) {
+                fetch('/api/cariogram/analyze', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        inputValues: values.map(String) // Convert numbers to strings
+                    })
                 })
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (cariogramChart) {
-                    // Update existing chart
-                    cariogramChart.data.datasets[0].data = data;
-                    cariogramChart.update();
-                } else {
-                    // Create new chart
-                    generatePieChart(data);
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Failed to generate the Cariogram. Please try again.');
-            });
+                .then(response => response.json())
+                .then(data => {
+                       const roundData = data.map(value => Math.round(value))
+
+                    if (cariogramChart) {
+                        // Update existing chart
+                        cariogramChart.data.datasets[0].data = roundData;
+                        cariogramChart.update();
+                    } else {
+                        // Create new chart
+                        generatePieChart(roundData);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Failed to generate the Cariogram. Please try again.');
+                });
+            }
         }
-    }
 
     function generatePieChart(data) {
         const ctx = document.getElementById('cariogramChart').getContext('2d');
